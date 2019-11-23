@@ -1,0 +1,38 @@
+.header {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 50px;
+}
+
+.help {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 50px;
+  color: red;
+}
+
+.input-area {
+  text-align:center;
+  margin:auto;
+}
+
+.listen-button {
+  font-size: 20px;
+  padding: 15px 32px;
+  background-color: dodgerblue;
+  color: white;
+}
+
+.input-field {
+  font-size: 20px;
+  padding: 15px 15px;
+}
+
+.answer-button {
+  font-size: 20px;
+  padding: 15px 15px;
+  color: white;
+  background-color: green;
+}
