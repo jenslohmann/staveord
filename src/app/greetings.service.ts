@@ -13,6 +13,8 @@ export class GreetingsService {
   success: [string, string, number][] = [['Flot klaret.', 'da-DK', 1],
     ['Den sad lige i skabet.', 'da-DK', 1],
     ['Fedt nok.', 'da-DK', 1],
+    ['Korrekt.', 'da-DK', 1],
+    ['Rigtigt.', 'da-DK', 1],
     ['Oh yeah!', 'en-US', 0.2],
     ['Top dollar', 'en-US', 0.2]];
 
@@ -25,7 +27,7 @@ export class GreetingsService {
   }
 
   spell(word: string): string {
-    return this.getRandom(this.spellTo) + word;
+    return this.getRandom(this.spellTo) + word + '.';
   }
 
   wellDone(): SpeechSynthesisUtterance {

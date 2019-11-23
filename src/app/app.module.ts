@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 import { SpeechSynthesizerService } from './speech.service';
 import { WordService } from './word.service';
 import { GreetingsService } from './greetings.service';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { GreetingsService } from './greetings.service';
   ],
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    FormsModule
   ],
   providers: [SpeechSynthesizerService, WordService, GreetingsService],
   bootstrap: [AppComponent]

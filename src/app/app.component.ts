@@ -17,10 +17,13 @@ export class AppComponent {
     this.speech = speech;
     this.words = wordService;
     this.greetings = greetingsService;
+    this.bullsEyes = 0;
     this.nextWord();
   }
 
   wordToSpell: string;
+  enteredText: string;
+  bullsEyes: number;
 
   title = 'staveord';
 
@@ -34,19 +37,26 @@ export class AppComponent {
   }
 
   sayWordToSpell(): void {
-    this.speech.say(this.wordToSpell);
+    this.speech.say(this.wordToSpell + '.');
   }
 
   nextWord(): void {
+    this.enteredText = '';
     this.wordToSpell = this.words.newWord();
     this.speech.say(this.greetings.spell(this.wordToSpell));
   }
 
-  testEquality(enteredText: string) {
-    enteredText = enteredText.trim().toLowerCase();
+  testEquality() {
+    const enteredText = this.enteredText.trim().toLowerCase();
     if (enteredText === this.wordToSpell.toLowerCase()) {
 
       this.speech.utter(this.greetings.wellDone());
+
+      this.bullsEyes += 1;
+
+      if (this.bullsEyes % 10 === 0) {
+        this.speech.say('Nu har du ' + this.bullsEyes + ' rigtige. FLOT!');
+      }
 
       this.nextWord();
     } else {

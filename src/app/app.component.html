@@ -9,10 +9,12 @@
       <button class="listen-button" (click)="sayWordToSpell()">Hør</button>
 
       <label>
-        <input class="input-field" #enteredText (keyup.enter)="testEquality(enteredText.value)">
+        <input class="input-field" [(ngModel)]="enteredText" (keyup.enter)="testEquality()">
       </label>
 
-      <button class="answer-button" (click)="testEquality(enteredText.value)">?</button>
+      <button class="answer-button" (click)="testEquality()">?</button>
     </div>
+
+    <span class="status-area">Antal rigtige: {{ bullsEyes }}</span>
   </div>
 </div>

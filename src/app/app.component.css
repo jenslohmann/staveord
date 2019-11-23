@@ -36,3 +36,10 @@
   color: white;
   background-color: green;
 }
+
+.status-area {
+  display: block;
+  font-size: 20px;
+  text-align:center;
+  margin:auto;
+}
