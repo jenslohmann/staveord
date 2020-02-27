@@ -7,6 +7,7 @@ export class GreetingsService {
   private speech: SpeechSynthesizerService;
 
   spellTo = ['Du skal nu stave til:',
+    'Du skal stave til:',
     'Stav til:'
   ];
 
@@ -26,8 +27,8 @@ export class GreetingsService {
     this.speech = speech;
   }
 
-  spell(word: string): string {
-    return this.getRandom(this.spellTo) + word + '.';
+  spell(helperSentence: string, word: string): string {
+    return helperSentence + '. ' + this.getRandom(this.spellTo) + ' ' + word + '.';
   }
 
   wellDone(): SpeechSynthesisUtterance {

@@ -21,7 +21,7 @@ export class AppComponent {
     this.nextWord();
   }
 
-  wordToSpell: string;
+  wordToSpell: [string, string];
   enteredText: string;
   bullsEyes: number;
 
@@ -37,18 +37,18 @@ export class AppComponent {
   }
 
   sayWordToSpell(): void {
-    this.speech.say(this.wordToSpell + '.');
+    this.speech.say(this.wordToSpell[0] + '.');
   }
 
   nextWord(): void {
     this.enteredText = '';
     this.wordToSpell = this.words.newWord();
-    this.speech.say(this.greetings.spell(this.wordToSpell));
+    this.speech.say(this.greetings.spell(this.wordToSpell[1], this.wordToSpell[0]));
   }
 
   testEquality() {
     const enteredText = this.enteredText.trim().toLowerCase();
-    if (enteredText === this.wordToSpell.toLowerCase()) {
+    if (enteredText === this.wordToSpell[0].toLowerCase()) {
 
       this.speech.utter(this.greetings.wellDone());
 
@@ -63,8 +63,13 @@ export class AppComponent {
       if (enteredText === '') {
         this.speech.say(this.greetings.noEntry());
       } else {
-        this.speech.say(this.greetings.error(enteredText, this.wordToSpell));
+        this.speech.say(this.greetings.error(enteredText, this.wordToSpell[0]));
       }
     }
+  }
+
+  giveUp() {
+    this.speech.say('OK, den var måske for svær. Vi prøver et nyt ord.');
+    this.nextWord();
   }
 }
